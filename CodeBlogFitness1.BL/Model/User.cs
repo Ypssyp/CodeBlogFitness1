@@ -5,7 +5,8 @@ namespace CodeBlogFitness1.BL.Model
     /// <summary>
     /// Пользователь.
     /// </summary>
-    class User
+    [Serializable]
+  public  class User
     {
         #region Свойства
         /// <summary>
