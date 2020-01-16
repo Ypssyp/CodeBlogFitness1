@@ -42,7 +42,7 @@ namespace CodeBlogFitness1.BL.Controller
                 Users.Add(CurrentUser);
                 IsNewUser = true;
                 Save();
-            }
+            }                                                   
             
         }
                  /// <summary>
@@ -56,7 +56,7 @@ namespace CodeBlogFitness1.BL.Controller
             using (var fs = new FileStream("users.dat", FileMode.OpenOrCreate))
             {
 
-                if (formatter.Deserialize(fs) is List<User> users)
+                if (fs.Length > 0 && formatter.Deserialize(fs) is List<User> users) 
                 {
                     return users;
                 }
