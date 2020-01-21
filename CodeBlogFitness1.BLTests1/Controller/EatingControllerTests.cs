@@ -9,7 +9,7 @@ using CodeBlogFitness1.BL.Model;
 
 namespace CodeBlogFitness1.BL.Controller.Tests
 {
-    [TestClass()]
+   // [TestClass()]
     public class EatingControllerTests
     {
         [TestMethod()]
