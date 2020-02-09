@@ -6,27 +6,29 @@ namespace CodeBlogFitness1.BL.Model
 
     public  class Food
     {
-        public string Name { get; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
          
         /// <summary>
           /// Белки
           /// </summary>
-        public double Proteins { get; }
+        public double Proteins { get; set; }
         
         /// <summary>
          /// Жиры
          /// </summary>
-        public double Fats { get; }
+        public double Fats { get; set; }
         
         /// <summary>
          /// Углеводы
          /// </summary>
-        public double Carbohydrates { get; }
+        public double Carbohydrates { get; set; }
        
         /// <summary>
         /// Калории за 100 грамм продукта 
         /// </summary>
-        public double Calories { get; }
+        public double Calories { get; set; }
 
         private double CalloriesOneGramm { get { return Calories / 100.0; } }
         private double ProteinsOneGramm { get { return Proteins / 100.0; } }

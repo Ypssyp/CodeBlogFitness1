@@ -1,35 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CodeBlogFitness1.BL.Controller
 {
-    public abstract  class ControllerBase
+    public abstract  class ControllerBase<T> where T: class
     {
-       protected  void Save(string fileName, object item)
+        protected IDataSaver<T> manager = new SerializeDataSaver<T>();
+      protected void Save(T item)
         {
-            var formatter = new BinaryFormatter();
-
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {                                                        
-                formatter.Serialize(fs, item);
-            }
+            manager.Save(item);
         }
 
-        protected T Load<T>(string fileName)
+        protected List<T> Load()
         {
-            var formatter = new BinaryFormatter();
-            using (var fs = new FileStream(fileName, FileMode.OpenOrCreate))
-            {
-                if (fs.Length > 0 && formatter.Deserialize(fs) is T items)
-                {
-                    return items;
-                }
-                else
-                {
-                    return default(T);
-                }
-            }
+             return manager.Load();
         }
+
     }
 }

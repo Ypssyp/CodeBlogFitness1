@@ -5,6 +5,7 @@ namespace CodeBlogFitness1.BL.Model
     [Serializable]
     public class Activity
     {
+       public int Id { get; set; }
        public string Name { get; set; }
 
         public double CaloriesPerMinute { get; set; }
